@@ -1,0 +1,17 @@
+
+A User can Click To Add A Coin To Their Portfolio.
+
+
+UseEffect 1: Fetch All Coins List About 10 With Pagination.
+
+
+UseEffect 2: // fetch price whenever `selectedCoinId` changes
+
+UseEffect 3:
+
+
+
+
+- **Kick off** your app by loading all available coins,
+- **Reactively** update whenever the user picks a different asset, and
+- **Maintain** a live price feed without leaking timers or state updates after unmount.
