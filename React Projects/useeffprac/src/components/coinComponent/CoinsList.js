@@ -6,8 +6,11 @@ import { Button } from '../utilties/button';
 // Import loading State / Error State
 
 export function CoinsList({ coins, isLoading, error }) {
-  function onSelectCoin() {}
   function onDeleteCoin() {}
+  function handleViewCoin(coin) {
+    alert(coin.id);
+  }
+
   function Loader() {
     return (
       <tr>
@@ -34,6 +37,7 @@ export function CoinsList({ coins, isLoading, error }) {
       {/* Is Error Happening */}
       {error && <ErrorMessage message={error} />}
       {/* Loading is False Error IS False */}
+
       {!isLoading &&
         !error &&
         coins.map((coin) => (
@@ -42,7 +46,7 @@ export function CoinsList({ coins, isLoading, error }) {
             <td>{coin.symbol}</td>
             <td>{coin.name}</td>
             <td>
-              <Button onClick={() => onSelectCoin(coin)} label="View Coin" />
+              <Button onClick={() => handleViewCoin(coin)} label="View Coin" />
               <Button onClick={() => onDeleteCoin(coin)} label="Delete Coin" />
             </td>
           </tr>

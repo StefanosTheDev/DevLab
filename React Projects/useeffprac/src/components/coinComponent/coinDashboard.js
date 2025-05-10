@@ -35,6 +35,7 @@ export function CoinDashboard() {
   return (
     <div className="dashboard">
       <h2>Coin Dashboard</h2>
+
       <SearchCoin query={query} setQuery={setQuery} />
       <table className="table table-striped table-bordered table-hover">
         <thead>
@@ -43,10 +44,17 @@ export function CoinDashboard() {
             <th>Symbol</th>
             <th>Name</th>
             <th>Actions</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
+          {/* No coins */}
+          {!isLoading && !error && filteredCoins.length === 0 && (
+            <tr>
+              <td colSpan={4} style={{ textAlign: 'center' }}>
+                No coins found.
+              </td>
+            </tr>
+          )}
           <CoinsList
             coins={filteredCoins}
             isLoading={isLoading}
