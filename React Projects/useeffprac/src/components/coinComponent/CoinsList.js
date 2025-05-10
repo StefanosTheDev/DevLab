@@ -8,14 +8,32 @@ import { Button } from '../utilties/button';
 export function CoinsList({ coins, isLoading, error }) {
   function onSelectCoin() {}
   function onDeleteCoin() {}
+  function Loader() {
+    return (
+      <tr>
+        <td colSpan="5" style={{ textAlign: 'center' }}>
+          🔄 Loading...
+        </td>
+      </tr>
+    );
+  }
+
+  function ErrorMessage({ message }) {
+    return (
+      <tr>
+        <td colSpan="5" style={{ textAlign: 'center', color: 'red' }}>
+          ❌ {message}
+        </td>
+      </tr>
+    );
+  }
   return (
-    // Review why this worked had to use fragment vs Div
     <>
       {/* Loading Flow */}
-      {isLoading && <p> We are currently Loading </p>}
+      {isLoading && <Loader />}
       {/* Is Error Happening */}
-      {error && <p> {error.message} </p>}
-      {/* Render Data */} {/* Leave a note to review this conditional */}
+      {error && <ErrorMessage message={error} />}
+      {/* Loading is False Error IS False */}
       {!isLoading &&
         !error &&
         coins.map((coin) => (
