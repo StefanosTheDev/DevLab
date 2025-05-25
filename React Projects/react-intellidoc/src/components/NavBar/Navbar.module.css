@@ -1,0 +1,64 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background-color: white;
+  /* border-bottom: 1px solid #eee; */
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.center {
+  flex: 1; /* gobbles up the space */
+  display: flex;
+  justify-content: center; /* puts Home dead-center */
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* .right, .login, .cta stay exactly as before */
+
+.center li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.center li a:hover {
+  color: #555;
+}
+
+.right {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.login {
+  padding: 6px 14px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.cta {
+  padding: 6px 14px;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+}

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh; /* Full screen height */
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.inputBox {
+  width: 700px;
+  height: 250px;
+  padding: 30px;
+  border: black;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  outline: none;
+  resize: none; /* Prevent manual resize if you make it a textarea */
+  transition: box-shadow 0.2s ease;
+}
+
+.inputBox:focus {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
