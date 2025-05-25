@@ -1,43 +1,47 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './TextEditor.module.css';
 
-export function TextEditor() {
-  const [text, setText] = useState('');
-  const textRef = useRef(''); // Tracks the last saved value
+type TextEditorProps = {
+  storageKey: string;
+  defaultText?: string;
+};
 
-  // 1. Load saved content on first mount
+export function TextEditor({ storageKey, defaultText = '' }: TextEditorProps) {
+  const [text, setText] = useState('');
+  const textRef = useRef('');
+
+  // Load saved content
   useEffect(() => {
-    const saved = localStorage.getItem('autosaved-text');
+    const saved = localStorage.getItem(storageKey);
 
     if (saved) {
       setText(saved);
       textRef.current = saved;
     } else {
-      const defaultText = 'In the ancient land of Eldoria, ...';
       setText(defaultText);
       textRef.current = defaultText;
     }
-  }, []);
+  }, [storageKey, defaultText]);
 
-  // 2. Save to localStorage only when text changes from the last saved
+  // Autosave changes
   useEffect(() => {
     const timer = setTimeout(() => {
       if (text !== textRef.current) {
-        localStorage.setItem('autosaved-text', text);
+        localStorage.setItem(storageKey, text);
         textRef.current = text;
-        console.log('✅ Text saved to localStorage');
+        console.log(`✅ Saved to ${storageKey}`);
       }
-    }, 1000); // debounce 1 second
+    }, 1000);
 
     return () => clearTimeout(timer);
-  }, [text]);
+  }, [text, storageKey]);
 
   return (
     <div className={styles.container}>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="In the ancient land of Eldoria, where the skies were painted with shades of mystic hues and the forests whispered secrets of old..."
+        placeholder="Start typing your document..."
         className={styles.inputBox}
       />
     </div>

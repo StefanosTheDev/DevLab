@@ -1,0 +1,33 @@
+ 1. DocPad — Google Docs-Style Editor (LocalStorage)
+🔧 Features:
+Rich text editor using <textarea> (or contentEditable)
+
+Autosave using useEffect and localStorage
+
+Create / Rename / Delete documents
+
+Route: /doc/:id
+
+Global Context for current document
+
+🔥 Skills Practiced:
+useState, useEffect, Context API
+
+React Router
+
+Controlled inputs
+
+Reusable <DocEditor /> and <DocList /> components
+
+
+
+
+// User Can Spin The App Up. 
+// They Can Click A Page to see all there Documents.
+// If there is not a document it will show none.
+// They Can Click Add Document. 
+// Edit it do what they need to do.
+// Then Just Create A  New One After That. Once It's Auto Saved To Local Storage It Can Have a Document id
+// In The View ALl Documents they will show as Cards  by id.
+// I can Search For ID . I can Delete Them . If I double Click It I can re-edit them there.
+// 

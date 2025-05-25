@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Dropdown } from '../Dropdown/Dropdown';
+// import { Dropdown } from '../Dropdown/Dropdown';
 import styles from './NavBar.module.css';
 
 export function NavBar() {
@@ -12,25 +12,25 @@ export function NavBar() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/Price">Pricing</NavLink>
+          <NavLink to="/Dashboard">Dashboard</NavLink>
         </li>
-        <li>
+        {/* <li>
           <Dropdown label="Resources">
             <NavLink to="/docs">Docs</NavLink>
             <NavLink to="/guides">Guides</NavLink>
             <NavLink to="/support">Support</NavLink>
           </Dropdown>
-        </li>
+        </li> */}
       </ul>
 
-      <div className={styles.right}>
+      {/* <div className={styles.right}>
         <NavLink to="/login" className={styles.login}>
           Log In
         </NavLink>
         <NavLink to="/signup" className={styles.cta}>
           Register
         </NavLink>
-      </div>
+      </div> */}
     </nav>
   );
 }

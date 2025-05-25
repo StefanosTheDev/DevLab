@@ -1,25 +1,26 @@
 import styles from './Hero.module.css';
-
+import { useNavigate } from 'react-router-dom';
 function Hero() {
-  function toggle() {
-    // Add logic here later
+  const navigate = useNavigate();
+
+  function handleCreate() {
+    const newId = crypto.randomUUID(); // create unique doc ID
+    navigate(`/doc/${newId}`);
   }
 
   return (
     <div className={styles.hero}>
-      <h1 className={styles.heroTitle}>The Most Realistic Voice AI Platform</h1>
-      <p className={styles.heroDescription}>
-        AI voice models and products powering millions of developers, creators,
-        and enterprises. From low‑latency conversational agents to the leading
-        AI voice generator for voiceovers and audiobooks.
-      </p>
+      <h1 className={styles.heroTitle}>A Super Cool App </h1>
+      <p className={styles.heroDescription}>PEW POO PEW POO</p>
 
-      <button onClick={toggle} className={styles.start}>
-        Get Started For Free
+      <button onClick={handleCreate} className={styles.start}>
+        Create A Document
       </button>
-      <button onClick={toggle} className={styles.contact}>
-        Contact Sales
-      </button>
+      {
+        <button onClick={handleCreate} className={styles.start}>
+          View Documents
+        </button>
+      }
     </div>
   );
 }
