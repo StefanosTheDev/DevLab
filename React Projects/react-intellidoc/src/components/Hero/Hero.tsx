@@ -2,7 +2,6 @@ import styles from './Hero.module.css';
 import { useNavigate } from 'react-router-dom';
 function Hero() {
   const navigate = useNavigate();
-
   function handleCreate() {
     const newId = crypto.randomUUID(); // create unique doc ID
     navigate(`/doc/${newId}`);

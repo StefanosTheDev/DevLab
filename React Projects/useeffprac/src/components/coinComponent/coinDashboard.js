@@ -7,7 +7,7 @@ export function CoinDashboard() {
   const [error, setError] = useState('');
   const [coins, setCoins] = useState([]);
   const [query, setQuery] = useState('');
-
+  const [favorites, setFavorites] = useState([]);
   useEffect(() => {
     const loadCoins = async () => {
       try {

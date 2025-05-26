@@ -3,7 +3,7 @@ import { NavBar } from './components/NavBar/NavBar';
 import AppRouter from './components/AppRouter/AppRouter';
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
       <NavBar />
       <AppRouter />
     </BrowserRouter>
