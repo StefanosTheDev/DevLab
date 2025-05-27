@@ -1,0 +1,47 @@
+.container {
+  margin-top: 2rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.table th {
+  color: #555;
+  font-weight: 600;
+}
+
+.button {
+  background-color: #4c6ef5;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background-color: #3b5bdb;
+}
