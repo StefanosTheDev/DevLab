@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router';
 function AccountsList() {
   const { accounts } = useLocalUserData();
   const navigate = useNavigate();
-
   if (!accounts || accounts.length === 0) return <p>No accounts found.</p>;
+
   function handleAccessAccount(account) {
     navigate(`/account/${account.type}`, { state: { account } });
   }
@@ -25,7 +25,7 @@ function AccountsList() {
         </thead>
         <tbody>
           {accounts.map((item) => (
-            <tr key={item.id}>
+            <tr key={item.type}>
               <td>{item.type.toUpperCase()}</td>
               <td>{item.accountNumber}</td>
               <td>${item.balance.toLocaleString()}</td>
@@ -33,7 +33,7 @@ function AccountsList() {
               <td>
                 <button
                   className={styles.button}
-                  onClick={() => handleAccessAccount(item.type)}
+                  onClick={() => handleAccessAccount(item)}
                 >
                   Access Account
                 </button>

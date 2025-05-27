@@ -14,30 +14,36 @@
           "accountNumber": "CHK-1001",
           "balance": 400,
           "withdrawalMax": 100,
-          "currency": "USD"
+          "currency": "USD",
+          "transactions": [
+            {
+              "id": 2,
+              "date": "2025-05-22",
+              "type": "withdrawal",
+              "amount": 100
+            },
+            {
+              "id": 4,
+              "date": "2025-05-20",
+              "type": "deposit",
+              "amount": 1040
+            }
+          ]
         },
         {
           "type": "savings",
           "accountNumber": "SAV-2001",
           "balance": 2000,
           "withdrawalMax": null,
-          "currency": "USD"
-        }
-      ],
-      "transactions": [
-        {
-          "id": 1,
-          "date": "2025-05-20",
-          "type": "deposit",
-          "amount": 1500,
-          "accountType": "savings"
-        },
-        {
-          "id": 2,
-          "date": "2025-05-22",
-          "type": "withdrawal",
-          "amount": 100,
-          "accountType": "checking"
+          "currency": "USD",
+          "transactions": [
+            {
+              "id": 1,
+              "date": "2025-05-20",
+              "type": "deposit",
+              "amount": 1500
+            }
+          ]
         }
       ]
     },
@@ -55,14 +61,16 @@
           "accountNumber": "CHK-1002",
           "balance": 400,
           "withdrawalMax": 50,
-          "currency": "USD"
+          "currency": "USD",
+          "transactions": []
         },
         {
           "type": "savings",
           "accountNumber": "SAV-2002",
           "balance": 2000,
           "withdrawalMax": null,
-          "currency": "USD"
+          "currency": "USD",
+          "transactions": []
         },
         {
           "type": "credit",
@@ -71,16 +79,15 @@
           "balance": 1200,
           "availableCredit": 3800,
           "creditLimitIncreaseAvailable": false,
-          "currency": "USD"
-        }
-      ],
-      "transactions": [
-        {
-          "id": 1,
-          "date": "2025-04-10",
-          "type": "purchase",
-          "amount": 200,
-          "accountType": "credit"
+          "currency": "USD",
+          "transactions": [
+            {
+              "id": 1,
+              "date": "2025-04-10",
+              "type": "purchase",
+              "amount": 200
+            }
+          ]
         }
       ]
     }
