@@ -1,18 +1,18 @@
-import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Make sure you're using react-router-dom
+import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router';
+import { useAuth } from '../context/AuthContext';
 
 function LoginForm() {
-  const navigate = useNavigate();
   const usernameRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const { login } = useAuth(); // From Context
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
-
     try {
       const res = await fetch('http://localhost:9000/users');
       const data = await res.json();
@@ -25,6 +25,7 @@ function LoginForm() {
         localStorage.setItem('User', JSON.stringify(user));
         console.log('Login Successful', user.name);
         setError('');
+        login(user);
         navigate('/dashboard');
       } else {
         setError('❌ Invalid username or password');
@@ -34,7 +35,6 @@ function LoginForm() {
       setError('⚠️ Unable to reach server');
     }
   };
-
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <h2>Login</h2>

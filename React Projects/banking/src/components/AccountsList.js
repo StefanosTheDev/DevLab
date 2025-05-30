@@ -1,14 +1,17 @@
 import useLocalUserData from '../hooks/useFetchUserData';
 import styles from './AccountsList.module.css';
 import { useNavigate } from 'react-router';
-
+import { useAuth } from '../context/AuthContext';
 function AccountsList() {
-  const { accounts } = useLocalUserData();
+  const { user } = useAuth();
+  console.log('USER', user);
+
   const navigate = useNavigate();
-  if (!accounts || accounts.length === 0) return <p>No accounts found.</p>;
+
+  if (!user || user.length === 0) return <p>No accounts found.</p>;
 
   function handleAccessAccount(account) {
-    navigate(`/account/${account.type}`, { state: { account } });
+    navigate(`/account/${account.type}`);
   }
   return (
     <div className={styles.container}>
@@ -24,7 +27,7 @@ function AccountsList() {
           </tr>
         </thead>
         <tbody>
-          {accounts.map((item) => (
+          {user.accounts.map((item) => (
             <tr key={item.type}>
               <td>{item.type.toUpperCase()}</td>
               <td>{item.accountNumber}</td>

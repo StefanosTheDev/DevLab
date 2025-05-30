@@ -8,7 +8,6 @@ function DashboardPage() {
   const navigate = useNavigate();
 
   const user = useLocalUserData();
-  //   console.log(user.accounts);
 
   if (!user) {
     navigate('/');

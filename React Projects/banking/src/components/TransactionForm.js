@@ -1,9 +1,32 @@
-function TransactionForm({ inputType }) {
+import { useState } from 'react';
+function TransactionForm({ inputType, accountType, onSubmit }) {
+  const [amount, setAmount] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const transaction = {
+      id: Date.now(),
+      type: inputType,
+      amount: Number(amount),
+      date: new Date().toISOString(),
+    };
+    onSubmit(transaction);
+    setAmount('');
+  };
+
   return (
-    <form className="transaction-form" onSubmit={() => {}}>
-      <h1>{inputType}</h1>
-      <input type="number" placeholder="0" required></input>
-      <button type="submit">OK</button>
+    <form onSubmit={handleSubmit}>
+      <h3>
+        {inputType} to {accountType}
+      </h3>
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        placeholder="Amount"
+        required
+      />
+      <button type="submit">Submit</button>
     </form>
   );
 }
